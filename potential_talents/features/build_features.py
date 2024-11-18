@@ -94,3 +94,63 @@ def get_bert_embeddings(sentences, save_path=None, load_path=None):
 
 
     return np.array(embeddings)
+
+
+def standardize_location(location):
+    """
+    Standardizes location names to "City, Country" format.
+    """
+    try:
+        # Geocode the location
+        loc = geolocator.geocode(location, language='en')
+        if loc:
+            # Extract city and country from the address
+            address = loc.address
+            address_parts = address.split(', ')
+            city = address_parts[0]
+            country = address_parts[-1]
+            standardized_loc = f"{city}, {country}"
+            return standardized_loc
+        else:
+            return location
+    except Exception as e:
+        return location
+
+def calculate_keyword_match(df, keyword):
+    """Calculates the keyword match using fuzzywuzzy's partial_ratio in a vectorized way.
+
+    Args:
+      df: Pandas DataFrame with a 'job_title' column.
+      keyword: The keyword to match against.
+
+    Returns:
+      A NumPy array containing the partial ratio scores.
+    """
+
+    return np.vectorize(lambda x: fuzz.partial_ratio(x.lower(), keyword.lower()))(df['job_title'].values)
+
+
+def calculate_keyword_match(df, search_phrases):
+    """Calculates the keyword match using fuzzywuzzy's partial_ratio for multiple phrases.
+
+    Args:
+    df: Pandas DataFrame with a 'job_title' column.
+    search_phrases: A list of keywords to match against.
+
+    Returns:
+    A NumPy array containing the maximum partial ratio score for each row.
+    """
+    if isinstance(search_phrases, str):
+        return np.vectorize(lambda x: fuzz.partial_ratio(x.lower(), search_phrases.lower()))
+        (df['job_title'].values)
+
+    elif isinstance(search_phrases, list):
+        # Find the maximum partial ratio score for each row across all search phrases
+        return np.max([
+            np.vectorize(lambda x: fuzz.partial_ratio(x.lower(), phrase.lower()))(
+                df['job_title'].values) for phrase in search_phrases
+        ], axis=0)  # partial_ratios
+
+# Tokenize dataset
+def tokenize_function(examples):
+    return bert_tokenizer(examples['text'], truncation=True, padding='max_length', max_length=128)
