@@ -7,6 +7,8 @@ import spacy
 from nltk.stem import PorterStemmer
 from transformers import BertTokenizer, TFBertModel
 
+
+
 # Spacy & NLTK
 spacy_nlp = spacy.load('en_core_web_sm')
 spacy_nlp.pipe_names
@@ -95,26 +97,6 @@ def get_bert_embeddings(sentences, save_path=None, load_path=None):
 
     return np.array(embeddings)
 
-
-def standardize_location(location):
-    """
-    Standardizes location names to "City, Country" format.
-    """
-    try:
-        # Geocode the location
-        loc = geolocator.geocode(location, language='en')
-        if loc:
-            # Extract city and country from the address
-            address = loc.address
-            address_parts = address.split(', ')
-            city = address_parts[0]
-            country = address_parts[-1]
-            standardized_loc = f"{city}, {country}"
-            return standardized_loc
-        else:
-            return location
-    except Exception as e:
-        return location
 
 def calculate_keyword_match(df, keyword):
     """Calculates the keyword match using fuzzywuzzy's partial_ratio in a vectorized way.

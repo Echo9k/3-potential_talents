@@ -125,3 +125,4 @@ dmypy.json
 wandb/
 GloVe/
 bert_finetuned/
+config/.credentials

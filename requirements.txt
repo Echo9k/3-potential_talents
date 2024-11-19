@@ -10,3 +10,8 @@ nltk
 spacy
 wget
 fuzzywuzzy
+geopy
+seaborn
+plotly
+nbformat
+wget

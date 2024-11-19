@@ -1,0 +1,21 @@
+name: talent
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11
+  - pandas
+  - numpy
+  - streamlit
+  - seaborn
+  - plotly
+  - matplotlib
+  - scikit-learn
+  - tensorflow
+  - transformers
+  - sentence-transformers
+  - nltk
+  - spacy
+  - geopy
+post:
+  - python -m spacy download en
+  - nbformat
