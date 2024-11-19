@@ -1,4 +1,5 @@
 import nltk
+import wget
 
 
 nltk.download("punkt")
