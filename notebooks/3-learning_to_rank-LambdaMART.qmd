@@ -1,0 +1,32 @@
+---
+jupyter: python3
+---
+
+<a href="https://colab.research.google.com/github/Echo9k/3-potential_talents/blob/dev/Potential%20Talent.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
+
+## Candidate Ranking and Re-Ranking with Starring
+
+This section highlights the steps taken to evaluate candidate ranking performance effectively.
+
+---
+
+### 1. **Dependencies**
+
+The following libraries are required for implementing the ranking workflow:
+
+```python
+from pathlib import Path
+from IPython.display import display, Markdown
+import numpy as np
+import pandas as pd
+import xgboost as xgb
+from sklearn.model_selection import train_test_split
+```
+
+```Markdown
+**Key Highlights**:
+
+- `xgboost` is a robust and scalable gradient boosting library, ideal for implementing Learning-to-Rank models.
+- `pandas` enables efficient data manipulation and analysis.
+- `IPython.display` supports dynamic visualization in notebooks.
+```
