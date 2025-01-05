@@ -126,3 +126,4 @@ wandb/
 GloVe/
 bert_finetuned/
 config/.credentials
+config/credentials.json

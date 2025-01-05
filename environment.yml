@@ -2,7 +2,7 @@ name: talent
 channels:
   - conda-forge
 dependencies:
-  - python=3.11
+  - python
   - pandas
   - numpy
   - streamlit
@@ -16,6 +16,7 @@ dependencies:
   - nltk
   - spacy
   - geopy
-post:
-  - python -m spacy download en
-  - nbformat
+  - pip
+  - pip:
+    - wget
+    - nbformat

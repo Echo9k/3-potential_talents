@@ -1,0 +1,17 @@
+name: a4_llm
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11
+  - requests
+  - pandas
+  - numpy
+  - fastparquet
+  # - huggingface_hub
+  - pip
+  - pip:
+    - triton
+    # - 'aisuite[huggingface]'
+    - transformers
+    - nbformat
+    - pytest
