@@ -4,12 +4,12 @@ streamlit
 matplotlib
 scikit-learn
 # tensorflow
-transformers
+transformers[torch]
 sentence-transformers
 nltk
 spacy
 wget
-fuzzywuzzy
+# fuzzywuzzy
 geopy
 seaborn
 plotly
