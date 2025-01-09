@@ -1,17 +1,22 @@
 name: llm
 channels:
   - conda-forge
+  - pytorch 
+  - nvidia
 dependencies:
   - python=3.11
   - requests
   - pandas
   - numpy
   - fastparquet
+  - pytorch
   # - huggingface_hub
   - pip
   - pip:
     - triton
     # - aisuite[huggingface]
+    - accelerate>=0.26.0
     - transformers[torch]
+    - torch
     - nbformat
     - pytest
