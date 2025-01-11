@@ -10,7 +10,10 @@ dependencies:
   - numpy
   - fastparquet
   - pytorch
+  - torchvision
+  - torchaudio
   # - huggingface_hub
+  - pytorch-cuda=12.1
   - pip
   - pip:
     - triton
@@ -20,3 +23,4 @@ dependencies:
     - torch
     - nbformat
     - pytest
+    - aisuite[all]
