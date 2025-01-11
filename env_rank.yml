@@ -1,0 +1,22 @@
+name: rank
+channels:
+  - conda-forge
+dependencies:
+  - python
+  - pandas
+  - numpy
+  - streamlit
+  - seaborn
+  - plotly
+  - matplotlib
+  - scikit-learn
+  - tensorflow
+  - transformers
+  - sentence-transformers
+  - nltk
+  - spacy
+  - geopy
+  - pip
+  - pip:
+    - wget
+    - nbformat

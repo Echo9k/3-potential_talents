@@ -1,0 +1,11 @@
+requests
+pandas
+numpy
+fastparquet
+# huggingface_hub
+pip
+triton
+# aisuite[huggingface]
+transformers[torch]
+nbformat
+pytest
